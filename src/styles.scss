@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+@import 'variables.scss';
 
 *,
 *::before,
@@ -12,8 +13,8 @@
   padding: 0;
 }
 
-ul[role="list"],
-ol[role="list"] {
+ul[role='list'],
+ol[role='list'] {
   list-style: none;
 }
 
@@ -71,15 +72,24 @@ html {
   width: 100%;
 }
 
-$color-text: #181a2a;
-$text-grey: #52525b;
-$primary-color: #4b6bfb;
-$grey-color: #e8e8ea;
-
-$typograpy: Work Sans;
-
 html {
   color: $color-text;
   background-color: white;
   font-family: $typograpy;
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #007bff;
+  }
+}
+
+.logo {
+  height: 50px;
+  width: auto;
 }
