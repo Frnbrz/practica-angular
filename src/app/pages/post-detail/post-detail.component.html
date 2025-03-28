@@ -1,1 +1,10 @@
-<p>post-detail works!</p>
+@if(post) {
+<article class="post-list__item">
+  <div class="post">
+    <img [src]="post.imageUrl" alt="Introduction to Angular" class="post__image" />
+    <h3 class="post__title">{{ post.title }}</h3>
+    <p class="post__text">{{ post.text }}</p>
+    <p class="post__meta">{{ post.publicationDate | date : 'short' }}</p>
+  </div>
+</article>
+}
