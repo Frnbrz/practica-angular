@@ -3,8 +3,14 @@
   @for (post of posts; track post.id) {
   <article class="post-list__item">
     <div class="post">
-      <img [src]="post.imageUrl" alt="Introduction to Angular" class="post__image" />
-      <a class="post__title" [routerLink]="`post/${post.id}`">{{ post.title }}</a>
+      <img
+        [src]="post.imageUrl"
+        alt="Introduction to Angular"
+        class="post__image"
+      />
+      <a class="post__title" [routerLink]="`post/${post.id}`">{{
+        post.title
+      }}</a>
       <p class="post__text">{{ post.text }}</p>
       <p class="post__meta">{{ post.publicationDate | date : 'short' }}</p>
     </div>

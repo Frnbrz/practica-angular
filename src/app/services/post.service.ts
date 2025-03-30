@@ -17,4 +17,8 @@ export class PostService {
   getById(id: number): Post | undefined {
     return posts.find((post) => post.id === id)
   }
+
+  insert(post: Post) {
+    posts.push(post)
+  }
 }

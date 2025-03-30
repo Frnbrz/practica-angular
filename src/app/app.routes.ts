@@ -7,6 +7,11 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component'
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
     component: HomePageComponent,
   },
   {
