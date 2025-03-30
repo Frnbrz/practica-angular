@@ -81,13 +81,47 @@ Desarrollaremos el componente ViewPost donde se muestra la información del post
 - Código completo de la aplicación en Angular.
 - Repositorio de código en github por tareas, y muchos commit.
 
-### Que necesito
+## Que necesito
 
-pages: home, new, post/:idpost
-components: blog, formulario, viewpost
-services: blog, category
-interfaces: post, category
-directives: highlight
-pipes: filter
-validations: url
-filters: category, title
+### Pages (3)
+
+### Páginas (3)
+
+1. Página de inicio (/home) - Muestra todas las publicaciones del blog
+2. Página de nueva publicación (/new) - Contiene el formulario para crear publicaciones
+3. Página de detalle de publicación (/post/:idpost) - Muestra los detalles de una publicación individual
+
+### Componentes (3 principales + potencialmente más)
+
+1. BlogComponent - Muestra la lista de publicaciones
+2. FormularioComponent - Formulario para crear nuevas publicaciones
+3. ViewPostComponent - Muestra los detalles de una publicación individual
+4. Podrías necesitar componentes adicionales para filtrado, navegación, etc.
+
+### Servicios (1-2)
+
+1. Servicio de publicaciones (Post service) - Servicio principal con métodos:
+   - getAll() - Devuelve todas las publicaciones
+   - insert(post) - Inserta una nueva publicación en el array
+   - getByCategoria(cat) - Devuelve publicaciones filtradas por categoría
+   - getById(id) - Devuelve una sola publicación por ID
+2. Potencialmente un servicio separado para categorías (Category service) - El README no deja claro si esto es independiente
+
+### Interfaces (2)
+
+1. Interfaz de publicación (Post interface) - Con propiedades: id, Titulo, texto, autor, imagen, fecha, categoria
+2. Interfaz de categoría (Category interface) - Con propiedades: id, Titulo
+
+## Implementaciones
+
+- **Angular**: Utilizar Angular para la creación de la aplicación.
+- **Bootstrap**: Utilizar Bootstrap para el diseño y la maquetación de la aplicación.
+- **Formularios Reactivos**: Debes usar formularios reactivos para la página de nueva publicación, no formularios basados en plantillas.
+- **Validador Personalizado**: Necesitas crear un validador personalizado para verificar URLs utilizando expresiones regulares.
+- **Filtrado y Búsqueda**:
+  - Implementar filtrado por categoría.
+  - Implementar funcionalidad de búsqueda por título.
+- **Patrón de Datos**: Usar arrays estáticos en los servicios (sin conexiones a API HTTP).
+- **Rutas Angular**: Implementar enrutamiento con las tres rutas especificadas.
+- **Selector de Categorías**: Implementar un selector de categorías que será llenado desde el servicio.
+- **Técnicas de Comunicación**: Usar Output o QueryParams para manejar la selección de categorías (dependiendo de la ubicación del componente).
