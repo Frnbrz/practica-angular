@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Post } from '../interfaces/post.interface'
 import { posts } from '../db/post.db'
+import { Category } from '../interfaces/category.interface'
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +11,10 @@ export class PostService {
     return posts
   }
 
-  getByCategory(categoryIndex: number): Post[] {
-    return posts.filter((post) => post.category === categoryIndex)
+  getByCategory(category: Category): Post[] {
+    return posts.filter((post) => {
+      post.category === category
+    })
   }
 
   getById(id: number): Post | undefined {
