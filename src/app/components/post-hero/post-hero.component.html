@@ -1,0 +1,29 @@
+@if (post) {
+<div class="post-hero">
+  <figure class="post-hero__image">
+    <img [src]="post.imageUrl" [alt]="post.title" />
+  </figure>
+  <div class="post-hero__card">
+    <div class="post-hero__content">
+      <span class="badge badge--primary">{{ category?.name }}</span>
+      <a [routerLink]="`/post/${post.id}`">
+        <h2 class="post-hero__title">{{ post.title }}</h2>
+      </a>
+      <div class="post-hero__meta">
+        <div class="post-hero__profile">
+          <figure>
+            <img
+              src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"
+              alt=""
+            />
+          </figure>
+          <span>profile</span>
+        </div>
+        <span class="post-hero__date">
+          Published on: {{ post.publicationDate }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+}
