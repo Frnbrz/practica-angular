@@ -28,10 +28,29 @@ export class HomePageComponent {
   }
 
   getDataByCategory(category: Category) {
-    const allPosts = this.postService.getByCategory(category.id)
+    const allPosts = this.postService.getByCategory(category.name)
     this.firstPost = allPosts[0]
     this.posts = allPosts.slice(1)
   }
 
-  onApplyFilters($event: string) {}
+  applyFilters(filterType: 'name' | 'category', filterValue: string) {
+    if (filterValue === '') {
+      this.posts = this.postService.getAll()
+      return
+    }
+
+    if (filterType === 'name') {
+      this.posts = this.postService.getByName(filterValue)
+    } else if (filterType === 'category') {
+      this.posts = this.postService.getByCategory(filterValue)
+    }
+  }
+
+  onApplyNameFilters($event: string) {
+    this.applyFilters('name', $event)
+  }
+
+  onApplyCategoryFilters($event: string) {
+    this.applyFilters('category', $event)
+  }
 }

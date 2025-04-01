@@ -1,25 +1,25 @@
 <div class="filters">
   <div class="filters__group">
-    <label class="filters__label" for="nameFilter">Filter by Name:</label>
+    <label class="filters__label" for="nameFilter"></label>
     <input
       class="filters__input"
       type="text"
       id="nameFilter"
       [(ngModel)]="nameFilter"
-      placeholder="Enter name"
+      placeholder="Nombre Articulo..."
+      (change)="onNameFilter()"
     />
   </div>
 
   <div class="filters__group">
-    <label class="filters__label" for="categoryFilter"
-      >Filter by Category:</label
-    >
+    <label class="filters__label" for="categoryFilter"></label>
     <select
+      (change)="onCategoryFilter()"
       class="filters__select"
       id="categoryFilter"
       [(ngModel)]="selectedCategory"
     >
-      <option class="filters__option" value="">All Categories</option>
+      <option class="filters__option" value="">Todos las Categorías</option>
       @for (category of categories; track $index) {
       <option class="filters__option" [value]="category.name">
         {{ category.name }}
@@ -27,8 +27,4 @@
       }
     </select>
   </div>
-
-  <button class="filters__button" (click)="onApplyFilers()">
-    Apply Filters
-  </button>
 </div>

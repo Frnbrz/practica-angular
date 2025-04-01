@@ -1,6 +1,9 @@
 <app-post-hero [post]="firstPost" />
 
-<app-filters (applyFilters)="onApplyFilters($event)" />
+<app-filters
+  (applyNameFilters)="onApplyNameFilters($event)"
+  (applyCategoryFilters)="onApplyCategoryFilters($event)"
+/>
 <div class="post-list">
   @for (post of posts; track post.id) {
   <article class="post-list__item">

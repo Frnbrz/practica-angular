@@ -12,12 +12,4 @@ import { RouterLink } from '@angular/router'
 })
 export class PostHeroComponent {
   @Input() post: Post | undefined
-  categoryService = inject(CategoriesService)
-  category: Category | undefined
-
-  ngOnInit() {
-    this.category = this.categoryService.getAll().find((category) => {
-      return category.id === this.post?.category
-    })
-  }
 }

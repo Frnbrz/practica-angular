@@ -11,14 +11,16 @@ export class PostService {
     return posts
   }
 
-  getByCategory(category: Category): Post[] {
-    return posts.filter((post) => {
-      post.category === category
-    })
+  getByCategory(category: string): Post[] {
+    return posts.filter((post) => post.category.name === category)
   }
 
   getById(id: number): Post | undefined {
     return posts.find((post) => post.id === id)
+  }
+
+  getByName(name: string): Post[] {
+    return posts.filter((post) => post.title.includes(name))
   }
 
   insert(post: Post) {

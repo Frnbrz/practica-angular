@@ -35,6 +35,31 @@ export class FormComponent {
         Validators.required,
         Validators.minLength(2),
       ]),
+      author: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
+      imageUrl: new FormControl(null, [
+        Validators.required,
+        Validators.pattern(
+          /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/
+        ),
+      ]),
+      category: new FormControl(null, [Validators.required]),
+    })
+    this.form = new FormGroup({
+      title: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
+      text: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
+      author: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
       imageUrl: new FormControl(null, [
         Validators.required,
         Validators.pattern(

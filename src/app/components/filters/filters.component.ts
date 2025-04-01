@@ -10,7 +10,8 @@ import { CategoriesService } from '../../services/categories.service'
   styleUrl: './filters.component.scss',
 })
 export class FiltersComponent {
-  @Output() applyFilters: EventEmitter<string> = new EventEmitter()
+  @Output() applyNameFilters: EventEmitter<string> = new EventEmitter()
+  @Output() applyCategoryFilters: EventEmitter<string> = new EventEmitter()
   nameFilter: string = ''
   selectedCategory: string = ''
   categories: Category[] = []
@@ -20,7 +21,10 @@ export class FiltersComponent {
     this.categories = this.categoriesService.getAll()
   }
 
-  onApplyFilers() {
-    this.applyFilters.emit(this.selectedCategory)
+  onNameFilter() {
+    this.applyNameFilters.emit(this.nameFilter)
+  }
+  onCategoryFilter() {
+    this.applyCategoryFilters.emit(this.selectedCategory)
   }
 }

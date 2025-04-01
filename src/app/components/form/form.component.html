@@ -1,22 +1,61 @@
 <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="form__group">
     <label for="title" class="form__label">Title:</label>
-    <input formControlName="title" type="text" id="title" name="title" class="form__input" required />
+    <input
+      formControlName="title"
+      type="text"
+      id="title"
+      name="title"
+      class="form__input"
+      required
+    />
   </div>
 
   <div class="form__group">
     <label for="text" class="form__label">Text:</label>
-    <textarea formControlName="text" id="text" name="text" class="form__textarea" rows="4" required></textarea>
+    <textarea
+      formControlName="text"
+      id="text"
+      name="text"
+      class="form__textarea"
+      rows="4"
+      required
+    ></textarea>
+  </div>
+
+  <div class="form__group">
+    <label for="author" class="form__label">Author:</label>
+    <input
+      formControlName="author"
+      type="text"
+      id="author"
+      name="author"
+      class="form__input"
+      required
+    />
   </div>
 
   <div class="form__group">
     <label for="imageUrl" class="form__label">Image URL:</label>
-    <input formControlName="imageUrl" type="url" id="imageUrl" name="imageUrl" class="form__input" required />
+    <input
+      formControlName="imageUrl"
+      type="url"
+      id="imageUrl"
+      name="imageUrl"
+      class="form__input"
+      required
+    />
   </div>
 
   <div class="form__group">
     <label for="category" class="form__label">Category:</label>
-    <select formControlName="category" id="category" name="category" class="form__select" required>
+    <select
+      formControlName="category"
+      id="category"
+      name="category"
+      class="form__select"
+      required
+    >
       <option value="" disabled selected>Select a category</option>
       @for (category of categories; track category.id) {
       <option [value]="category.id">{{ category.name }}</option>

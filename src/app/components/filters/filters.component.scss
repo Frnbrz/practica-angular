@@ -2,9 +2,7 @@
   display: flex;
   gap: 1.5rem;
   padding: 1rem;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  justify-content: flex-end;
 
   &__group {
     display: flex;
@@ -23,6 +21,7 @@
     padding: 0.5rem;
     font-size: 1rem;
     border: 1px solid #ccc;
+    background-color: #f4f4f5;
     border-radius: 4px;
     transition: border-color 0.3s ease;
 
