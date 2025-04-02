@@ -9,6 +9,9 @@
       class="form__input"
       required
     />
+    @if (form.get('title')?.invalid && form.get('title')?.touched) {
+    <small class="form__error">Title is required and must be valid.</small>
+    }
   </div>
 
   <div class="form__group">
@@ -21,6 +24,9 @@
       rows="4"
       required
     ></textarea>
+    @if (form.get('text')?.invalid && form.get('text')?.touched) {
+    <small class="form__error">Text is required and must be valid.</small>
+    }
   </div>
 
   <div class="form__group">
@@ -33,6 +39,9 @@
       class="form__input"
       required
     />
+    @if (form.get('author')?.invalid && form.get('author')?.touched) {
+    <small class="form__error">Author is required and must be valid.</small>
+    }
   </div>
 
   <div class="form__group">
@@ -45,6 +54,9 @@
       class="form__input"
       required
     />
+    @if (form.get('imageUrl')?.invalid && form.get('imageUrl')?.touched) {
+    <small class="form__error">Url is required and must be valid.</small>
+    }
   </div>
 
   <div class="form__group">
@@ -61,6 +73,9 @@
       <option [value]="category.id">{{ category.name }}</option>
       }
     </select>
+    @if (form.get('category')?.invalid && form.get('category')?.touched) {
+    <small class="form__error">Categoria is required and must be valid.</small>
+    }
   </div>
 
   <button type="submit" class="button button--primary">Submit</button>

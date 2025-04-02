@@ -1,5 +1,6 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core'
 import {
+  AbstractControl,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -39,12 +40,7 @@ export class FormComponent {
         Validators.required,
         Validators.minLength(2),
       ]),
-      imageUrl: new FormControl(null, [
-        Validators.required,
-        Validators.pattern(
-          /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/
-        ),
-      ]),
+      imageUrl: new FormControl(null, [Validators.required, this.urlValidator]),
       category: new FormControl(null, [Validators.required]),
     })
     this.form = new FormGroup({
@@ -60,17 +56,31 @@ export class FormComponent {
         Validators.required,
         Validators.minLength(2),
       ]),
-      imageUrl: new FormControl(null, [
-        Validators.required,
-        Validators.pattern(
-          /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/
-        ),
-      ]),
+      imageUrl: new FormControl(null, [Validators.required]),
       category: new FormControl(null, [Validators.required]),
     })
   }
 
+  urlValidator(control: AbstractControl) {
+    const url = control.value
+    const regex = new RegExp(
+      /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/
+    )
+
+    if (!url) {
+      return null
+    }
+
+    if (regex.test(url)) {
+      return { urlvalidator: true }
+    }
+
+    return null
+  }
+
   onSubmit() {
-    this.onFormEmit.emit(this.form.value)
+    if (!this.form.invalid) {
+      this.onFormEmit.emit(this.form.value)
+    }
   }
 }
