@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
-import { Post } from '../interfaces/post.interface'
 import { posts } from '../db/post.db'
-import { Category } from '../interfaces/category.interface'
+import { Post } from '../interfaces/post.interface'
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +23,7 @@ export class PostService {
   }
 
   insert(post: Post) {
+    post.id = posts.length + 1
     posts.push(post)
   }
 }
